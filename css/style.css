@@ -83,8 +83,9 @@ input:-webkit-autofill:focus{border: none;}
 }
 #form input:hover{
     transition: all.2s;
-    border: #004fb670 1px solid;
+    border: #0067ee70 2px solid;
 }
+
 #eye,
 #eye2{
     
@@ -109,6 +110,7 @@ input:-webkit-autofill:focus{border: none;}
 .warning{color: #b30000;}
 .is-invalid{
     border: 2px solid brown;
+    animation: name .2s ;
 
 }
 
@@ -130,6 +132,11 @@ input:-webkit-autofill:focus{border: none;}
     border-radius: 7px;
     color: var(--color);
 }
+
+@keyframes name{
+    0%{transform: translateX(5px);}
+    50%{transform: translateX(-5px);}
+} 
 
 
 

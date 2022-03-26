@@ -12,6 +12,9 @@ let input = document.querySelectorAll('#form input')
 let pass1 = document.getElementById('pass1'),
     pass2 = document.getElementById('pass2')
 
+
+let array_users = []
+
 for(btn of choose){
     btn.addEventListener('click', chooseUserBut)
 }
@@ -87,6 +90,8 @@ function checkValid(){
         if(inp.value == ''){
             i++
             inp.classList.add('is-invalid')
+            
+
             console.log('j')
         }else{
             inp.classList.remove('is-invalid')
@@ -115,11 +120,23 @@ function submit(){
             let userN = document.createElement('div')
             userN.setAttribute('class', 'user block')
             
+
+            let     name = document.getElementById('name').value,
+            fname = document.getElementById('fname').value,
+            age = document.getElementById('data').value,
+            email = document.getElementById('email').value,
+            phone = document.getElementById('phone').value,
+            password = document.getElementById('pass1').value
+            
+            let user = new userDate(name, fname, age, email, phone, password)
+            array_users.push(user)
+            console.log(array_users)
+
             userN.innerHTML = '<img src="" alt="">'+
                             '<div class="option">'+
-                                '<div class="nameN">Andrey</div>'+
+                                '<div class="nameN">'+user.name+'</div>'+
                                 '<div class="point">•</div>'+
-                                '<div class="age">18</div>'+
+                                '<div class="age">'+ageOld+'</div>'+
                             '</div>'
             user_catalog.append(userN)
             
@@ -127,4 +144,13 @@ function submit(){
 
         
     }
+}
+
+function userDate(name, fname, age, email, phone, password){
+    this.name = name
+    this.fname = fname
+    this.age = age
+    this.email = email
+    this.phone = phone
+    this.pass = password
 }
