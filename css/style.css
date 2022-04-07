@@ -25,6 +25,7 @@ input:-webkit-autofill:focus{border: none;}
     box-shadow: 0 0 5px 0 #0000003b;
 
 }
+#user_catalog{}
 .user-form,
 .user-cat{display: none; transition: all .3s;}
 
@@ -82,8 +83,35 @@ input:-webkit-autofill:focus{border: none;}
     color: #a3a3a3;
 }
 #form input:hover{
-    transition: all.2s;
+    transition: all .2s;
     border: #0067ee70 2px solid;
+}
+
+#image_file.file{
+    z-index: 10;
+    opacity: 0;
+    width:  100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 159px;
+    left: -130px;
+   
+}
+#dsc{
+    position: absolute;
+    top: 159px;
+    left: -130px;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #0055c5;
+}
+#dsc .person-ico{
+    width: fit-content;
+    margin: 0 6px;
+    color: white;
 }
 
 #eye,
@@ -108,9 +136,20 @@ input:-webkit-autofill:focus{border: none;}
 }
 #choose{display: flex;margin-right: 5px;}
 .warning{color: #b30000;}
+
+#dsc.is-invalid{
+    background-color: #b30000;
+    transition: .2s ease;
+    
+}
+#dsc:hover{
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    background-color: #004fb681;
+}
 .is-invalid{
     border: 2px solid brown;
-    animation: name .2s ;
+    animation: name .2s;
 
 }
 
@@ -119,7 +158,8 @@ input:-webkit-autofill:focus{border: none;}
     width: 50px;
     height: 50px;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 20px auto;
+    border-radius: 10px;
 
 }
 /* #user_catalog{display: flex;} */
@@ -132,12 +172,43 @@ input:-webkit-autofill:focus{border: none;}
     border-radius: 7px;
     color: var(--color);
 }
+#new_ready{
+    position: absolute;
+    top: 10px;
+    left: 360px;
+    background-color: #00800077;
+    padding: 5px 20px;
+    width: fit-content;
+    border-radius: 3px;
+
+   
+}
+div[data-display='none']{
+    display: none;
+}
+#new_ready.active{
+    animation: new .3s ease;
+    display: block;
+    
+}
 
 @keyframes name{
     0%{transform: translateX(5px);}
     50%{transform: translateX(-5px);}
 } 
+@keyframes new{
+    0%{
+        display: block;
+        transform: translateY(0px);
+    }
+    50%{
+        display: block;
+        transform: translateY(15px);
+        
+    }
+} 
 
+    
 
 
 
@@ -163,5 +234,5 @@ input:-webkit-autofill:focus{border: none;}
 .ico,
 .ico_eye{display: none;}
 .ico_active{display: block;}
-.active-block{display: block; transition: all .3s;}
-
+.user-form.active-block{display: block; transition: all .3s;}
+.user-cat.active-block{display: flex;transition: all .3s;}

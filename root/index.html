@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Hello, world!</title>
   </head>
   <body id="page" class="dark">
     <div id="app" class="block">
+        <div id="new_ready" data-display="none">&#10004; + 1 new user!</div>
         <div id="menu">
             <div id="choose">
                 <div id="add_new-user" class="block block_menu active-block_menu">
@@ -24,7 +25,6 @@
                     </svg>
                 </div>
             </div>
-            
             <div id="night_theme_ico" class="block block_menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-moon ico_active ico" viewBox="0 0 16 16">
                     <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
@@ -36,6 +36,15 @@
         </div>
         <div id="body">
             <form action="" id="form" class="user-form active-block">
+
+                    <div class="form-floating">
+                        <input type="file" class="file" id="image_file" accept="image/png, image/jpeg">
+                        <label for="image_file" id="dsc">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="person-ico bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+                        </label>
+                    </div>
                 
                     <div class="form-floating">
                         <input type="text" class="" id="name" placeholder="Name">
@@ -50,7 +59,7 @@
                         <input type="email" class="" id="email" placeholder="example@pochta.com">
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="" id="phone" placeholder="+7(xxx)-xxx-xx-xx"> 
+                        <input type="tel" class="phone" id="phone" placeholder="+7(xxx)-xxx-xx-xx"> 
                     </div>
                 
                     

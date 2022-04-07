@@ -1,3 +1,4 @@
+// import {Cleave} from "../../module/node_modules/cleave.js/dist/cleave.min.js"
 let add_newUser = document.querySelector('#add_new-user'),
     show_users = document.querySelector('#show_users_ico'),
     night_theme = document.querySelector('#night_theme_ico'),
@@ -11,7 +12,9 @@ let sub = document.querySelector('#sub')
 let input = document.querySelectorAll('#form input')
 let pass1 = document.getElementById('pass1'),
     pass2 = document.getElementById('pass2')
-
+let file_img = document.getElementById('image_file')
+let new_person = document.querySelector('#new_ready')  
+let dsc = document.getElementById('dsc')
 
 let array_users = []
 
@@ -88,12 +91,26 @@ function checkValid(){
     let i = 0
     for(inp of input){
         if(inp.value == ''){
+            if(inp.id == 'image_file' && inp.value == ''){
+                document.querySelector('#dsc').classList.add('is-invalid')
+            }
+
+            
             i++
             inp.classList.add('is-invalid')
             
 
-            console.log('j')
+            // console.log('j')
         }else{
+            if(inp.id == 'image_file' && inp.value != ''){
+                document.querySelector('#dsc').classList.remove('is-invalid')
+                // dsc.style.backgroundImage = "url(../../image/"+file_img.files[0].name+""
+                dsc.style.backgroundImage = "url(../../image/"+file_img.files[0].name+""
+                dsc.style.backgroundSize = 'cover'
+                // console.log(file_img.files[0].);
+               
+            }
+            
             inp.classList.remove('is-invalid')
             continue
         } 
@@ -117,29 +134,44 @@ function submit(){
             pass1.classList.add('is-invalid')
             pass2.classList.add('is-invalid')
         }else{
+            
+            console.log(file_img.files[0].name);
             let userN = document.createElement('div')
             userN.setAttribute('class', 'user block')
             
-
-            let     name = document.getElementById('name').value,
+            let img = file_img.files[0].name,
+            name = document.getElementById('name').value,
             fname = document.getElementById('fname').value,
             age = document.getElementById('data').value,
             email = document.getElementById('email').value,
             phone = document.getElementById('phone').value,
             password = document.getElementById('pass1').value
+
+
+
+            let newDate = new Date()
+            let ageOld = new Date(age)
+            console.log()
+            let rezDate = newDate.getFullYear() - ageOld.getFullYear()
+            console.log(rezDate, "--",ageOld.getFullYear,'--',newDate.getFullYear)
             
             let user = new userDate(name, fname, age, email, phone, password)
             array_users.push(user)
             console.log(array_users)
 
-            userN.innerHTML = '<img src="" alt="">'+
+            userN.innerHTML = '<img src="../../image/'+img+'" alt="">'+
                             '<div class="option">'+
                                 '<div class="nameN">'+user.name+'</div>'+
                                 '<div class="point">•</div>'+
-                                '<div class="age">'+ageOld+'</div>'+
+                                '<div class="age">'+rezDate+'</div>'+
                             '</div>'
             user_catalog.append(userN)
-            
+
+            new_person.classList.add('active')
+            setTimeout(() => {
+                new_person.style.animation = ''
+                new_person.classList.remove('active')
+            },1000)
         }
 
         
@@ -154,3 +186,11 @@ function userDate(name, fname, age, email, phone, password){
     this.phone = phone
     this.pass = password
 }
+
+ new Cleave('.phone', {
+        phone: true,
+        phoneRegionCode: 'RU'
+
+    });
+    
+    
